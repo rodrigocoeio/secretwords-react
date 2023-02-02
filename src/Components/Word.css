@@ -1,0 +1,32 @@
+.Word {
+    width: auto;
+    margin: auto 0;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.LetterBox {
+    font-size:48px;
+    margin: 5px;
+    border: 1px solid gray;
+    text-align: center;
+    display: inline-block;
+    min-width: 77px;
+    min-height: 77px;
+}
+.Letter {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    background-color: gainsboro;
+    display: inline-block;
+}
+
+.Word.Opened .Letter {
+    background-color: greenyellow;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,2 +1,0 @@
-# secretwords
-Secret Words Game

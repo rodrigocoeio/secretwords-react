@@ -1,0 +1,18 @@
+.LettersBox {
+    margin: 15px;
+    text-align: center;
+}
+
+.LetterButton {
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold !important;
+    min-width: 40px;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.Letter.Opened {
+    background-color: greenyellow;
+}
