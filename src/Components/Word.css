@@ -25,6 +25,7 @@
 
 .Word.Opened .Letter {
     background-color: greenyellow;
+    cursor:pointer;
 }
 
 .clear {
