@@ -1,9 +1,0 @@
-.Welcome {
-    margin: 0 auto;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-    text-align: center;
-    margin-left: calc(50% - 225px);
-}
