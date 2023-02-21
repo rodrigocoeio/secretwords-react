@@ -16,9 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src*"],
-      "#/*": ["./src/components*"],
-      "$/*": ["./src/store*"]
+      "@*": ["./src*"],
+      "#*": ["./src/components*"],
+      "$*": ["./src/store*"]
     }
   },
   "include": ["src"],
