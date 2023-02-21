@@ -1,14 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import * as path from 'path';
-
-const alias = {
-  '@': path.resolve(__dirname, './src/')+'\\',
-  '#': path.resolve(__dirname, './src/components/')+'\\',
-  '$': path.resolve(__dirname, './src/store/')+'\\',
-};
-
-console.log(alias);
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,6 +10,10 @@ export default defineConfig({
     port: 93,
   },
   resolve: {
-    alias: alias
-  }
-})
+    alias: {
+      "@": path.resolve(__dirname, "./src/") + "\\",
+      "#": path.resolve(__dirname, "./src/components/") + "\\",
+      $: path.resolve(__dirname, "./src/store/") + "\\",
+    },
+  },
+});

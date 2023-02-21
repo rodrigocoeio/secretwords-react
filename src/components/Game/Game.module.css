@@ -1,19 +1,6 @@
-.Welcome {
-    width: 450px;
-    height: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.Logo {
+.QuitGameButton {
     display: block;
-    margin: 0 auto;
-    height: 300px;
-}
-
-.StartGameButton {
-    display: block;
-    background-color: #4CAF50;
+    background-color: #dd1c1c;
     border: none;
     color: white;
     margin: 0 auto;

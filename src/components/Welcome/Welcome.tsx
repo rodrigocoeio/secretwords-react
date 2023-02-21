@@ -12,7 +12,7 @@ const Welcome: FC = () => {
   
   return (
     <div className={styles.Welcome}>
-      {/* <img className={styles.Logo} src="/images/secretwords.png"/> */}
+      <img className={styles.Logo} src="/images/secretwords.png"/>
       <button className={styles.StartGameButton} onClick={startGame}>Start Game</button>
     </div>
   );

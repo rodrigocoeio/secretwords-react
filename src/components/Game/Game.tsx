@@ -1,4 +1,4 @@
-import "./Game.css";
+import styles from "./Game.module.css";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { actions } from "$/reducer";
@@ -12,8 +12,7 @@ const Game: FC = () => {
   
   return (
     <div>
-      Game!
-      <button onClick={quitGame}>Quit Game</button>
+      <button className={styles.QuitGameButton} onClick={quitGame}>Quit Game</button>
     </div>
   );
 };
