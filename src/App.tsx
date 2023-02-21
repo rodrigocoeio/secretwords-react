@@ -1,8 +1,8 @@
 import "./App.css";
 import { useSelector } from "react-redux";
-import { State } from "./store/state";
-import Welcome from "./components/Welcome/Welcome";
-import Game from "./components/Game/Game";
+import { State } from "$/state";
+import Welcome from "#/Welcome/Welcome";
+import Game from "#/Game/Game";
 
 function App() {
   const started = useSelector((state: State) => state.started);

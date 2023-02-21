@@ -1,7 +1,7 @@
 import "./Game.css";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { actions } from "../../store/reducer";
+import { actions } from "$/reducer";
 
 const Game: FC = () => {
   const dispatch = useDispatch();
