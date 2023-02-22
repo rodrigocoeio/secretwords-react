@@ -24,3 +24,8 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.StartGameButton:disabled {
+    opacity: 0.5;
+    cursor: progress;
+}

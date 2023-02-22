@@ -15,11 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "noImplicitAny": false,
     "paths": {
       "@*": ["./src*"],
       "#*": ["./src/components*"],
       "$*": ["./src/store*"]
-    }
+    },
+    "types": ["node","vite/client"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
