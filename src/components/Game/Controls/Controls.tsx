@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { State } from "$/state";
 import { actions } from "$/reducer";
 
-const Component: FC = () => {
+const Controls: FC = () => {
   const dispatch = useDispatch();
   const wordIndex = useSelector((state: State) => state.wordIndex);
   const words = useSelector((state: State) => state.words);
@@ -53,4 +53,4 @@ const Component: FC = () => {
   );
 };
 
-export default Component;
+export default Controls;

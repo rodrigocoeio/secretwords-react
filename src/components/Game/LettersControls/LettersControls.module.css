@@ -1,0 +1,13 @@
+.LettersControl {
+    padding: 20px;
+}
+
+.LetterButton {
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold !important;
+    min-width: 40px;
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
