@@ -1,3 +1,4 @@
+import playAudio from "@/scripts/playAudio";
 import { createSlice } from "@reduxjs/toolkit";
 import initialState, { State, Word, Letter } from "./state";
 
@@ -54,10 +55,18 @@ const reducers = {
     resetOpenedLetters(state);
   },
   openLetter(state: State, action: { payload: Letter }) {
+    const word = state.word as Word;
     const letter = state.letters.find((l) => l.name === action.payload.name);
     if (letter) {
       letter.opened = true;
       state.allLettersOpened = checkAllLettersOpened(state);
+
+      const wordHasLetter = word.name.indexOf(letter.name) >= 0;
+      if (wordHasLetter) {
+        playAudio("/audios/letters/" + letter.name + ".mp3");
+      } else {
+        playAudio("/audios/wrong.mpeg");
+      }
     }
   },
   loadWordAudio(
