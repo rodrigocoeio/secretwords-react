@@ -1,0 +1,37 @@
+.Controls {
+    background: #fff;
+}
+
+.Indexer {
+    display: inline-block;
+    color:black;
+    padding: 10px;
+}
+
+.Controls button {
+    display: inline-block;
+    border: none;
+    color: white;
+    margin: 0 auto;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.Controls button:hover {
+    opacity: 1;
+}
+.Controls button:disabled {
+    opacity: 0.5;
+}
+
+.QuitGameButton {
+    background-color: #dd1c1c;
+}
+
+.PreviousButton, .NextButton {
+    background-color: #29ce58;
+}

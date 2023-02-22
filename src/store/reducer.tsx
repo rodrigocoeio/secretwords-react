@@ -10,6 +10,12 @@ const reducers = {
   quitGame(state: State) {
     state.started = false;
   },
+  previousWord(state: State) {
+    if (state.wordIndex > 0) state.wordIndex--;
+  },
+  nextWord(state: State) {
+    if (state.wordIndex + 1 < state.words.length) state.wordIndex++;
+  },
   loadingWords(state: State) {
     state.status = "loading-words";
   },

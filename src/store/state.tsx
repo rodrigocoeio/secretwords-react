@@ -10,12 +10,14 @@ export interface State {
   started: boolean;
   status: Status;
   words: Word[];
+  wordIndex: number;
 }
 
 export const state: State = {
   started: false,
   status: "ready",
   words: [],
+  wordIndex: 0
 };
 
 export default state;
