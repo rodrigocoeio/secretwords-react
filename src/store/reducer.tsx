@@ -1,17 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import initialState, { State } from "./state";
+import initialState, { State, Word } from "./state";
 
 const reducers = {
-  loadingWords(state: State) {
-    state.status = "loading-words";
-  },
-  startGame(state: State, action: any) {
+  startGame(state: State, action: { payload: Word[] }) {
     state.started = true;
     state.words = action.payload;
     state.status = "ready";
   },
   quitGame(state: State) {
     state.started = false;
+  },
+  loadingWords(state: State) {
+    state.status = "loading-words";
+  },
+  loadingError(state: State) {
+    state.status = "error";
   },
 };
 
