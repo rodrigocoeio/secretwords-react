@@ -64,7 +64,7 @@ const reducers = {
     state: State,
     action: { payload: { word: Word; audio: string | boolean } }
   ) {
-    const word = state.words.find((w) => w.name === word.name);
+    const word = state.words.find((w) => w.name === action.payload.word.name);
     if (word) {
       word.audio = action.payload.audio;
     }

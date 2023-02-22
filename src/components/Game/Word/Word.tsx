@@ -55,6 +55,10 @@ const Word: FC = () => {
   if (word) {
     const wordLetters = getWordLetters(letters, word);
 
+    if (allLettersOpened) {
+      dispatch(playWordAudio(word));
+    }
+
     return (
       <div
         className={allLettersOpened ? styles.Word + " " + styles.Opened : ""}

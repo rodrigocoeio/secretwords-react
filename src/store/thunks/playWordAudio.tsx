@@ -8,7 +8,6 @@ export const playWordAudio = (word: Word) => {
     try {
       let audio = word.audio;
       if (!audio) {
-        console.log('loading audio');
         dispatch(actions.loadingWordAudio(word));
         audio = await textToSpeach(word.name);
         dispatch(actions.loadWordAudio({ word, audio }));
