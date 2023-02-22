@@ -8,6 +8,9 @@ import { actions } from "$/reducer";
 const LettersControls: FC = () => {
   const dispatch = useDispatch();
   const letters = useSelector((state: State) => state.letters);
+  const allLettersOpened = useSelector(
+    (state: State) => state.allLettersOpened
+  );
 
   function openLetterHandler(letter: Letter) {
     dispatch(actions.openLetter(letter));
@@ -18,9 +21,10 @@ const LettersControls: FC = () => {
       {letters.map((letter, index) => (
         <button
           key={index}
+          id={"letter-" + letter.name}
           className={styles.LetterButton}
           onClick={() => openLetterHandler(letter)}
-          disabled={letter.opened}
+          disabled={letter.opened || allLettersOpened}
         >
           {letter.name.toUpperCase()}
         </button>

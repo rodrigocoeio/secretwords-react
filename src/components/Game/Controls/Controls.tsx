@@ -27,6 +27,7 @@ const Controls: FC = () => {
   return (
     <div className={styles.Controls}>
       <button
+        id="previousWord"
         disabled={previousWordButtonDisabled}
         className={styles.PreviousButton}
         onClick={previousWordHandler}
@@ -39,6 +40,7 @@ const Controls: FC = () => {
       </div>
 
       <button
+        id="nextWord"
         disabled={nextWordButtonDisabled}
         className={styles.NextButton}
         onClick={nextWordHandler}
