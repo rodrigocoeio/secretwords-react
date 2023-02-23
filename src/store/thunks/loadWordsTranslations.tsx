@@ -26,6 +26,7 @@ export const loadWordsTranslations = (words: Word[]) => {
         uploadWords(newWords);
       }
     } catch (e: any) {
+      console.error(e);
       dispatch(actions.loadingError());
     }
   };

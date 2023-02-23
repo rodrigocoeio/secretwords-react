@@ -14,7 +14,8 @@ export const loadWordAudio = (word: Word) => {
         uploadWord({ ...word, audio });
       }
     } catch (e: any) {
-      dispatch(actions.loadingError());
+      console.error(e);
+      dispatch(actions.loadingError('audio'));    
     }
   };
 };

@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { State, Word } from "$/state";
 import playAudio from "@/scripts/playAudio";
 import Letter from "./Letter";
+import { loadWordAudio, loadWordsTranslations } from "$/actions";
 
 const Word: FC = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state: State) => state.loading);
   const wordIndex = useSelector((state: State) => state.wordIndex);
   const words = useSelector((state: State) => state.words);
   const allLettersOpened = useSelector(
@@ -21,8 +24,16 @@ const Word: FC = () => {
     }
 
     function playWordHandler(word: Word) {
-      if (allLettersOpened && word.audio) {
-        playAudio(word.audio as string);
+      if (allLettersOpened) {
+        if (word.audio) {
+          playAudio(word.audio as string);
+        } else if(!loading.audio || loading.audio==="error") {
+          dispatch(loadWordAudio(word));
+        }
+
+        if (!word.translation && (!loading.translations || loading.translations==="error")) {
+          dispatch(loadWordsTranslations(words));
+        }
       }
     }
 

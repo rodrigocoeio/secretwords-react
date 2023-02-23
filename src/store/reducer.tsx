@@ -1,6 +1,6 @@
 import playAudio from "@/scripts/playAudio";
 import { createSlice } from "@reduxjs/toolkit";
-import initialState, { State, Status, Word, Letter } from "./state";
+import initialState, { State, Status, Word, Letter, Loading } from "./state";
 
 function resetOpenedLetters(state: State) {
   state.letters.forEach((letter) => {
@@ -57,11 +57,17 @@ const reducers = {
     if (state.wordIndex > 0) state.wordIndex--;
     state.word = getCurrentWord(state);
     resetOpenedLetters(state);
+    state.loading.audio = false;
+    state.loading.translations = false;
+    state.status = getGameStatus(state);
   },
   nextWord(state: State) {
     if (state.wordIndex + 1 < state.words.length) state.wordIndex++;
     state.word = getCurrentWord(state);
     resetOpenedLetters(state);
+    state.loading.audio = false;
+    state.loading.translations = false;
+    state.status = getGameStatus(state);
   },
   openLetter(state: State, action: { payload: Letter }) {
     const word = state.word as Word;
@@ -108,8 +114,12 @@ const reducers = {
     state.status = "loading";
     state.loading.translations = true;
   },
-  loadingError(state: State) {
+  loadingError(state: State, action: { payload: string | undefined }) {
+    const loadingState = action.payload;
     state.status = "error";
+    if(loadingState && state.loading[loadingState]){
+      state.loading[loadingState] = "error";
+    }
   },
 };
 

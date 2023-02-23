@@ -1,9 +1,11 @@
 export type Status = "ready" | "loading" | "error";
+type loadingState = boolean | "error";
+export type Loading = { words: loadingState; audio: loadingState; translations: loadingState };
 
 export interface State {
   started: boolean;
   status: Status;
-  loading: { words: boolean; audio: boolean; translations: boolean };
+  loading: Loading;
   letters: Letter[];
   allLettersOpened: boolean;
   words: Word[];
