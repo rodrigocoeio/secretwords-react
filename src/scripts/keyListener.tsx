@@ -16,7 +16,7 @@ function keyListener(state: State) {
   const listenKeyBoardEvents = function (e) {
     const key = e.key;
 
-    console.log("Pressed key: " + key);
+    //console.log("Pressed key: " + key);
 
     // Welcome Page ( Game not Started )
     if (!gameState.started) {

@@ -63,11 +63,14 @@ const reducers = {
 
       const wordHasLetter = word.name.indexOf(letter.name) >= 0;
       if (wordHasLetter) {
-        playAudio("/audios/letters/" + letter.name + ".mp3", {volume:0.5});
+        playAudio("/audios/letters/" + letter.name + ".mp3", { volume: 0.5 });
       } else {
-        playAudio("/audios/wrong.mpeg", {volume:0.5});
+        playAudio("/audios/wrong.mpeg", { volume: 0.5 });
       }
     }
+  },
+  refreshWords(state: State, action: { payload: Word[] }) {
+    state.words = action.payload;
   },
   loadWordAudio(
     state: State,
