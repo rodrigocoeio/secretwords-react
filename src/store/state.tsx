@@ -1,8 +1,9 @@
-type Status = "ready" | "loading-words" | "loading-audio" | "error";
+export type Status = "ready" | "loading" | "error";
 
 export interface State {
   started: boolean;
   status: Status;
+  loading: { words: boolean; audio: boolean; translations: boolean };
   letters: Letter[];
   allLettersOpened: boolean;
   words: Word[];
@@ -24,6 +25,7 @@ const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 export const state: State = {
   started: false,
   status: "ready",
+  loading: { words: false, audio: false, translations: false },
   letters: letters.map((letter) => ({
     name: letter.toLowerCase(),
     opened: false,

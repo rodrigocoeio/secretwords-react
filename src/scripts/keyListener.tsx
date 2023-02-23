@@ -1,4 +1,4 @@
-import { State } from "../store/state";
+import { Letter, State } from "../store/state";
 
 declare global {
   interface Window {
@@ -6,10 +6,18 @@ declare global {
   }
 }
 
-let gameState: State;
+let gameState;
 
-function keyListener(state: State) {
-  gameState = state;
+function keyListener(
+  started: boolean,
+  letters: Letter[],
+  allLettersOpened: boolean
+) {
+  gameState = {
+    started,
+    letters,
+    allLettersOpened,
+  };
 
   if (window.keyListener) return false;
 
@@ -49,7 +57,7 @@ function keyListener(state: State) {
             document.getElementById("nextWord")!.click();
           break; */
         default:
-          const letter = state.letters.find(
+          const letter = gameState.letters.find(
             (l) => l.name.toLowerCase() === key.toLowerCase()
           );
           if (letter) {

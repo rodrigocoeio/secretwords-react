@@ -18,11 +18,12 @@ const Welcome: FC = () => {
       <div className={styles.Welcome}>
         <img className={styles.Logo} src="/images/secretwords.png" />
         <button
-          disabled={status === "loading-words"}
+          id="startGame"
+          disabled={status === "loading"}
           className={styles.StartGameButton}
           onClick={startGameHandler}
         >
-          {status === "loading-words" ? "Loading Words..." : "Start Game"}
+          {status === "loading" ? "Loading Words..." : "Start Game"}
         </button>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import playAudio from "@/scripts/playAudio";
 import { createSlice } from "@reduxjs/toolkit";
-import initialState, { State, Word, Letter } from "./state";
+import initialState, { State, Status, Word, Letter } from "./state";
 
 function resetOpenedLetters(state: State) {
   state.letters.forEach((letter) => {
@@ -32,6 +32,14 @@ function checkAllLettersOpened(state: State) {
   return false;
 }
 
+function getGameStatus(state: State): Status {
+  let status: Status = "ready";
+  for (const load in state.loading) {
+    if (state.loading[load]) status = "loading";
+  }
+  return status;
+}
+
 const reducers = {
   startGame(state: State, action: { payload: Word[] }) {
     state.started = true;
@@ -39,6 +47,7 @@ const reducers = {
     state.wordIndex = 0;
     state.word = getCurrentWord(state);
     state.status = "ready";
+    state.loading.words = false;
     resetOpenedLetters(state);
   },
   quitGame(state: State) {
@@ -69,8 +78,11 @@ const reducers = {
       }
     }
   },
-  refreshWords(state: State, action: { payload: Word[] }) {
+  loadTranslations(state: State, action: { payload: Word[] }) {
     state.words = action.payload;
+    state.word = getCurrentWord(state);
+    state.loading.translations = false;
+    state.status = getGameStatus(state);
   },
   loadWordAudio(
     state: State,
@@ -80,19 +92,21 @@ const reducers = {
     if (word) {
       word.audio = action.payload.audio;
     }
-  },
-  loadingWordAudio(state: State, action: { payload: Word }) {
-    state.status = "loading-audio";
-    const word = state.words.find((w) => w.name === action.payload.name);
-    if (word) {
-      word.audio = "loading";
-    }
+    state.word = getCurrentWord(state);
+    state.loading.audio = false;
+    state.status = getGameStatus(state);
   },
   loadingWords(state: State) {
-    state.status = "loading-words";
+    state.status = "loading";
+    state.loading.words = true;
   },
   loadingAudio(state: State) {
-    state.status = "loading-audio";
+    state.status = "loading";
+    state.loading.audio = true;
+  },
+  loadingTranslations(state: State) {
+    state.status = "loading";
+    state.loading.translations = true;
   },
   loadingError(state: State) {
     state.status = "error";

@@ -3,10 +3,12 @@ import { Word } from "$/state";
 import getWordsTranslations from "$/thirdParty/getWordsTranslations";
 import { uploadWords } from "../thirdParty/firebaseStorage";
 
-export const translateWords = (words: Word[]) => {
+export const loadWordsTranslations = (words: Word[]) => {
   return async (dispatch: any) => {
     try {
       if (words[0] && !words[0].translation) {
+        dispatch(actions.loadingTranslations());
+
         const translations = await getWordsTranslations(
           words.map((w) => w.name)
         );
@@ -20,7 +22,7 @@ export const translateWords = (words: Word[]) => {
           }
         }
 
-        dispatch(actions.refreshWords(newWords));
+        dispatch(actions.loadTranslations(newWords));
         uploadWords(newWords);
       }
     } catch (e: any) {
@@ -29,4 +31,4 @@ export const translateWords = (words: Word[]) => {
   };
 };
 
-export default translateWords;
+export default loadWordsTranslations;
