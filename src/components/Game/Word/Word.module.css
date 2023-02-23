@@ -7,28 +7,6 @@
     margin-bottom: 20px;
 }
 
-.LetterBox {
-    font-size:48px;
-    margin: 5px;
-    border: 1px solid gray;
-    text-align: center;
-    display: inline-block;
-    min-width: 77px;
-    min-height: 77px;
-}
-.Letter {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    background-color: gainsboro;
-    display: inline-block;
-    color: black;
-}
-
-.Word.Opened .Letter {
-    background-color: greenyellow;
-    cursor: pointer;
-}
-
 .clear {
     clear: both;
 }
