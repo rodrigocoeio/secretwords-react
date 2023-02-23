@@ -11,6 +11,7 @@ function App() {
   const dispatch = useDispatch();
   const started = useSelector((state: State) => state.started);
   const loading = useSelector((state: State) => state.loading);
+  const status = useSelector((state: State) => state.status);
   const letters = useSelector((state: State) => state.letters);
   const words = useSelector((state: State) => state.words) as Word[];
   const word = useSelector((state: State) => state.word) as Word;
@@ -30,7 +31,7 @@ function App() {
     }
   });
 
-  return <div className="App">{started ? <Game /> : <Welcome />}</div>;
+  return <div className={status=='loading' ? "App Loading" : "App"}>{started ? <Game /> : <Welcome />}</div>;
 }
 
 export default App;
