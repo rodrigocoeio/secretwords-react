@@ -3,14 +3,15 @@ import { FC } from "react";
 import Controls from "./Controls/Controls";
 import LettersControls from "./LettersControls/LettersControls";
 import Word from "./Word/Word";
+import Wrapper from "../Helpers/Wrapper";
 
 const Game: FC = () => {
   return (
-    <div>
+    <Wrapper>
       <Controls />
       <LettersControls />
       <Word />
-    </div>
+    </Wrapper>
   );
 };
 
