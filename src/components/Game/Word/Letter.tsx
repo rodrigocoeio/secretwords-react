@@ -14,7 +14,7 @@ const Letter: FC = (props) => {
 
   if (gameLetter && gameLetter.opened) {
     return (
-      <span key={"letter-" + letter} className={`${styles.LetterBox} ${styles.Letter} ${allLettersOpened && styles.Opened}`}>
+      <span key={"letter-" + letter} className={`${styles.LetterBox} ${styles.Letter}${allLettersOpened ? ' '+styles.Opened : ''}`}>
         {letter}
       </span>
     );

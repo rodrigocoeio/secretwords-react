@@ -29,9 +29,9 @@ function App() {
         dispatch(loadWordAudio(word));
       }
     }
-  });
+  }, [allLettersOpened]);
 
-  return <div className={`App ${status=='loading' && 'Loading'}`}>{started ? <Game /> : <Welcome />}</div>;
+  return <div className={`App${status=='loading' ? ' Loading' : ''}`}>{started ? <Game /> : <Welcome />}</div>;
 }
 
 export default App;

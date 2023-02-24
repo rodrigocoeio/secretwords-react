@@ -27,7 +27,7 @@ export const loadWordsTranslations = (words: Word[]) => {
       }
     } catch (e: any) {
       console.error(e);
-      dispatch(actions.loadingError());
+      dispatch(actions.loadingError('translations'));
     }
   };
 };

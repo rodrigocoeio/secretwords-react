@@ -1,5 +1,5 @@
 import styles from "./Word.module.css";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { State, Word } from "$/state";
 import playAudio from "@/scripts/playAudio";
@@ -19,19 +19,24 @@ const Word: FC = () => {
   if (word) {
     const letters = word.name.split("");
 
-    if (allLettersOpened && word.audio) {
-      playAudio(word.audio as string);
-    }
+    useEffect(() => {
+      if (allLettersOpened && word.audio) {
+        playAudio(word.audio as string);
+      }
+    }, [allLettersOpened, word]);
 
     function playWordHandler(word: Word) {
       if (allLettersOpened) {
         if (word.audio) {
           playAudio(word.audio as string);
-        } else if(!loading.audio || loading.audio==="error") {
+        } else if (!loading.audio || loading.audio === "error") {
           dispatch(loadWordAudio(word));
         }
 
-        if (!word.translation && (!loading.translations || loading.translations==="error")) {
+        if (
+          !word.translation &&
+          (!loading.translations || loading.translations === "error")
+        ) {
           dispatch(loadWordsTranslations(words));
         }
       }
