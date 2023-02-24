@@ -13,13 +13,8 @@ const Letter: FC = (props) => {
   );
 
   if (gameLetter && gameLetter.opened) {
-    let letterStyles = styles.LetterBox + " " + styles.Letter;
-    if (allLettersOpened) {
-      letterStyles += " " + styles.Opened;
-    }
-
     return (
-      <span key={"letter-" + letter} className={letterStyles}>
+      <span key={"letter-" + letter} className={`${styles.LetterBox} ${styles.Letter} ${allLettersOpened && styles.Opened}`}>
         {letter}
       </span>
     );

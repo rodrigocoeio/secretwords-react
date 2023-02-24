@@ -31,7 +31,7 @@ function App() {
     }
   });
 
-  return <div className={status=='loading' ? "App Loading" : "App"}>{started ? <Game /> : <Welcome />}</div>;
+  return <div className={`App ${status=='loading' && 'Loading'}`}>{started ? <Game /> : <Welcome />}</div>;
 }
 
 export default App;
